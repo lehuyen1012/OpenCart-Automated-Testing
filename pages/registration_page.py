@@ -6,9 +6,9 @@ class RegistrationPage(BasePage):
     def navigate_to_registration_page(self):
         self.driver.get("http://localhost/opencart")
         self.driver.find_element(By.XPATH, "//a[contains(@class, 'dropdown-toggle') and contains(., 'My Account')]").click()
-        time.sleep(5)
+        time.sleep(3)
         self.driver.find_element(By.XPATH, "//a[contains(text(), 'Register')]").click()
-        time.sleep(5)
+        time.sleep(3)
 
     def fill_registration_form(self, firstname, lastname, email, password, privacy_policy=True):
         self.scroll_to(0, 200)
