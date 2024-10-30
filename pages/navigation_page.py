@@ -1,8 +1,10 @@
 import time
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
+from utils.config import BASE_URL
 
 class Navigation(BasePage):
+
     def navigation_to_desktops(self):
         self.driver.find_element(By.XPATH, "/html/body/main/div[1]/nav/div[2]/ul/li[1]/a").click()
         time.sleep(3)
