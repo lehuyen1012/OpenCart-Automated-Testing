@@ -28,11 +28,11 @@ class Navigation(BasePage):
     def get_success_navigation_to_mac_desktops(self):
         return self.driver.find_element(By.XPATH, ('/html/body/main/div[2]/div/aside/div[1]/a[3]')).get_attribute('class')
 
-    def navigation_to_laptops(self):
+    def navigation_to_laptops_and_notebooks(self):
         self.driver.find_element(By.XPATH, "/html/body/main/div[1]/nav/div[2]/ul/li[2]/a").click()
         time.sleep(3)
 
-    def show_all_laptops(self):
+    def show_all_laptops_and_notebooks(self):
         self.driver.find_element(By.XPATH, "/html/body/main/div[1]/nav/div[2]/ul/li[2]/div/a").click()
         time.sleep(3)
 

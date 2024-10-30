@@ -1,11 +1,11 @@
 import time
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
-
+from utils.config import BASE_URL
 class LoginPage(BasePage):
 
     def navigate_to_login_page(self):
-        self.driver.get("http://localhost/opencart")
+        self.driver.get(BASE_URL)
         self.driver.find_element(By.XPATH, "//a[contains(@class, 'dropdown-toggle') and contains(., 'My Account')]").click()
         time.sleep(3)
         self.driver.find_element(By.XPATH, "//a[contains(text(), 'Login')]").click()
