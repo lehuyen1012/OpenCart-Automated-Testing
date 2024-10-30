@@ -4,13 +4,18 @@ from .base_page import BasePage
 from utils.config import BASE_URL
 
 class RegistrationPage(BasePage):
+    # Navigate to the registration page
     def navigate_to_registration_page(self):
+        # open the website
         self.driver.get(BASE_URL)
+        # Click on My Account
         self.driver.find_element(By.XPATH, "//a[contains(@class, 'dropdown-toggle') and contains(., 'My Account')]").click()
         time.sleep(3)
+        # Click on Register
         self.driver.find_element(By.XPATH, "//a[contains(text(), 'Register')]").click()
         time.sleep(3)
 
+    # Fill in the registration form
     def fill_registration_form(self, firstname, lastname, email, password, privacy_policy=True):
         self.scroll_to(0, 200)
         self.driver.find_element(By.ID, "input-firstname").send_keys(firstname)
@@ -18,6 +23,7 @@ class RegistrationPage(BasePage):
         self.driver.find_element(By.ID, "input-email").send_keys(email)
         self.driver.find_element(By.ID, "input-password").send_keys(password)
 
+        # Agree to privacy policy 
         if privacy_policy:
             self.driver.find_element(By.XPATH, "//input[@type='checkbox' and @name='agree']").click()
 
