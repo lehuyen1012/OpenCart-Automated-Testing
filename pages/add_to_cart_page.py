@@ -26,6 +26,16 @@ class AddToCart(BasePage):
     def get_product_name_in_shopping_cart(self):
         return self.driver.find_element(By.CSS_SELECTOR, '.table-responsive tbody .text-start a').text
     
+    def get_all_product_names_in_shopping_cart(self):
+        # Lấy danh sách tên sản phẩm trong giỏ hàng và trả về dưới dạng mảng
+        product_elements = self.driver.find_elements(By.CSS_SELECTOR, ".table-responsive tbody .text-start a")
+        return [element.text.strip() for element in product_elements]
+    
+    def get_alL_product_name_in_view_items(self):
+        # Lấy danh sách tên sản phẩm trong view items và trả về dưới dạng mảng
+        product_elements = self.driver.find_elements(By.CSS_SELECTOR, '.dropdown-menu .text-start a')
+        return [element.text.strip() for element in product_elements]
+    
     def get_product_name_in_view_items(self):
         return self.driver.find_element(By.CSS_SELECTOR, '.dropdown-menu .text-start a').text
     
@@ -46,13 +56,6 @@ class AddToCart(BasePage):
             return middle_price_element.text
         return None
 
-    
-    
-
-
-
-
-    
     def qty_product(self, qty):
         quantity_product = self.driver.find_element(By.ID, 'input-quantity')
         quantity_product.clear()
@@ -68,24 +71,6 @@ class AddToCart(BasePage):
     def get_error_add_to_cart(self):
         return self.driver.find_element(By.XPATH, "//div[contains(@class, 'alert-danger')]").text
     
-    def add_to_cart_icon(self):
-        self.driver.find_element(By.CSS_SELECTOR, "button[formaction*='checkout/cart.add']").click()
-        time.sleep(3)
-
-    def add_to_cart_multiple_products(self, qty):
-        for i in range(qty):
-            self.add_to_cart()
-            time.sleep(3)
-        return self.get_success_add_to_cart()
-    
-
-
-
-
-
-
-
-
 
     # def available_options_radio(self, value):
     #     self.scroll_to(0, 400)
