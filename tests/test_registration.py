@@ -1,5 +1,7 @@
+import sys
+sys.path.append("D:/myproject/test/automated-testing-opencart")
+from mydriver.mydriver import Driver
 import time
-from driver.driver import Driver
 from pages.registration_page import RegistrationPage
 
 class TestRegister(Driver):
@@ -10,7 +12,7 @@ class TestRegister(Driver):
         # Navigate to the registration page
         register_page.navigate_to_registration_page()
         # Fill in the registration form with valid data
-        register_page.fill_registration_form("Huyen", "Le", "emailregistest1@gmail.com", "123123")
+        register_page.fill_registration_form("Huyen", "Le", "registratoremailtest1@gmail.com", "123123")
         # Wait for 3 seconds
         time.sleep(3)
         # Get the success message
@@ -25,7 +27,7 @@ class TestRegister(Driver):
         # Navigate to the registration page
         register_page.navigate_to_registration_page()
         # Fill in the registration form with empty password
-        register_page.fill_registration_form("Huyen", "Le", "emailregistest2@gmail.com", "")
+        register_page.fill_registration_form("Huyen", "Le", "registratoremailtest2@gmail.com", "")
         time.sleep(3)
         message = register_page.get_error_message_password()
         assert "Password must be between 4 and 20 characters!" in message
@@ -49,7 +51,7 @@ class TestRegister(Driver):
         # Navigate to the registration page
         register_page.navigate_to_registration_page()
         # Fill in the registration form with empty first name
-        register_page.fill_registration_form("", "Le", "emailregistest3@gmail.com", "")
+        register_page.fill_registration_form("", "Le", "registratoremailtest3@gmail.com", "")
         time.sleep(3)
         message = register_page.get_error_message_firstname()
         assert "First Name must be between 1 and 32 characters!" in message
@@ -61,7 +63,7 @@ class TestRegister(Driver):
         # Navigate to the registration page
         register_page.navigate_to_registration_page()
         # Fill in the registration form with empty last name
-        register_page.fill_registration_form("Huyen", "", "emailregistest4@gmail.com", "123123")
+        register_page.fill_registration_form("Huyen", "", "registratoremailtest4@gmail.com", "123123")
         time.sleep(3)
         message = register_page.get_error_message_lastname()
         assert "Last Name must be between 1 and 32 characters!" in message
@@ -73,7 +75,7 @@ class TestRegister(Driver):
         # Navigate to the registration page
         register_page.navigate_to_registration_page()
         # Fill in the registration form without privacy policy
-        register_page.fill_registration_form("Huyen", "Le", "emailregistest5@gmail.com", "123123", False)
+        register_page.fill_registration_form("Huyen", "Le", "registratoremailtest5@gmail.com", "123123", False)
         time.sleep(3)
         message = register_page.get_error_message()
         assert "You must agree to the Privacy Policy!" in message
@@ -85,7 +87,7 @@ class TestRegister(Driver):
         # Navigate to the registration page
         register_page.navigate_to_registration_page()
         # Fill in the registration form with password that is too long
-        register_page.fill_registration_form("Huyen", "Le", "emailregistest6@gmail.com", "123456789012345678901234567890")
+        register_page.fill_registration_form("Huyen", "Le", "registratoremailtest6@gmail.com", "123456789012345678901234567890")
         time.sleep(3)
         message = register_page.get_error_message_password()
         assert "Password must be between 4 and 20 characters!" in message
@@ -97,7 +99,7 @@ class TestRegister(Driver):
         # Navigate to the registration page
         register_page.navigate_to_registration_page()
         # Fill in the registration form with password that is too short
-        register_page.fill_registration_form("Huyen", "Le", "emailregistest7@gmail.com", "12")
+        register_page.fill_registration_form("Huyen", "Le", "registratoremailtest7@gmail.com", "12")
         time.sleep(3)
         message = register_page.get_error_message_password()
         assert "Password must be between 4 and 20 characters!" in message
@@ -109,7 +111,7 @@ class TestRegister(Driver):
         # Navigate to the registration page
         register_page.navigate_to_registration_page()
         # Fill in the registration form with first name that is too long
-        register_page.fill_registration_form("longfirstnamelongfirstnamelongfirstnamelongfirstnamelongfirstnamelongfirstname", "Le", "emailregistest8@gmail.com", "123123")
+        register_page.fill_registration_form("longfirstnamelongfirstnamelongfirstnamelongfirstnamelongfirstnamelongfirstname", "Le", "registratoremailtest8@gmail.com", "123123")
         time.sleep(3)
         message = register_page.get_error_message_firstname()
         assert "First Name must be between 1 and 32 characters!" in message
@@ -121,7 +123,7 @@ class TestRegister(Driver):
         # Navigate to the registration page
         register_page.navigate_to_registration_page()
         # Fill in the registration form with last name that is too long
-        register_page.fill_registration_form("Huyen", "longlastnamelonglastnamelonglastnamelonglastnamelonglastnamelonglastname", "emailregistest9@gmail.com", "123123")
+        register_page.fill_registration_form("Huyen", "longlastnamelonglastnamelonglastnamelonglastnamelonglastnamelonglastname", "registratoremailtest9@gmail.com", "123123")
         time.sleep(3)
         message = register_page.get_error_message_lastname()
         assert "Last Name must be between 1 and 32 characters!" in message

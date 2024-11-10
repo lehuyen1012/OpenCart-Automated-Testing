@@ -1,4 +1,6 @@
-from driver.driver import Driver
+import sys
+sys.path.append("D:/myproject/test/automated-testing-opencart")
+from mydriver.mydriver import Driver
 from pages.responsive_page import ResponsivePage
 from utils.config import BASE_URL
 import time

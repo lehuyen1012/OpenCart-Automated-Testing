@@ -1,5 +1,7 @@
+import sys
+sys.path.append("D:/myproject/test/automated-testing-opencart")
+from mydriver.mydriver import Driver
 import time
-from driver.driver import Driver
 from pages.checkout_page import Checkout
 from pages.add_to_cart_page import AddToCart
 from utils.config import BASE_URL
@@ -21,7 +23,7 @@ class TestCheckout(Driver):
         time.sleep(5)
         # Navigate to checkout and fill out the registration form
         checkout.navigation_to_checkout()
-        checkout.fill_checkout_form_register("ltth10@gmail.com")
+        checkout.fill_checkout_form_register("testcheckoutmail02@gmail.com")
 
         # Check success message for registration
         message = checkout.get_success_message_register()
@@ -39,7 +41,7 @@ class TestCheckout(Driver):
         time.sleep(5)
         # Navigate to checkout and fill out the registration form
         checkout.navigation_to_checkout()
-        checkout.fill_checkout_form_register("ltth12@gmail.com")
+        checkout.fill_checkout_form_register("testcheckoutmail03@gmail.com")
 
         # Check success message for registration
         message = checkout.get_success_message_register()
@@ -98,7 +100,7 @@ class TestCheckout(Driver):
         # Navigate to checkout and fill out the registration form
         checkout.navigation_to_checkout()
         checkout.fill_checkout_form_user()
-
+        
         # Check success message for registration
         message = checkout.get_success_message_register()
         assert "Success: Your account has been created!" in message

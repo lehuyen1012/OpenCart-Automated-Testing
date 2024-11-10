@@ -1,4 +1,6 @@
-from driver.driver import Driver
+import sys
+sys.path.append("D:/myproject/test/automated-testing-opencart")
+from mydriver.mydriver import Driver
 from pages.add_to_cart_page import AddToCart
 from pages.navigation_page import Navigation
 from utils.config import BASE_URL
@@ -230,6 +232,33 @@ class TestAddToCart(Driver):
             assert expected_total_price == product_price_value, f"Giá trị tổng không khớp: Dự kiến {expected_total_price}, thực tế {product_price_value}"
 
     
+    def test_remove_product_from_shopping_cart(self, driver):
+        driver.get(BASE_URL)
+        add_to_cart = AddToCart(driver)
+        add_to_cart.navigation_to_details_page(43)
+        time.sleep(3)
+
+        add_to_cart.add_to_cart()
+        time.sleep(5)
+        add_to_cart.navigation_to_shopping_cart()
+        time.sleep(5)
+        add_to_cart.remove_product_from_shopping_cart()
+        time.sleep(5)
+        assert add_to_cart.get_lable_shopping_cart() in 'Your shopping cart is empty!'
+
+    def test_remove_product_from_view_items(self, driver):
+        driver.get(BASE_URL)
+        add_to_cart = AddToCart(driver)
+        add_to_cart.navigation_to_details_page(43)
+        time.sleep(3)
+
+        add_to_cart.add_to_cart()
+        time.sleep(5)
+        add_to_cart.navigation_to_view_items()
+        time.sleep(5)
+        add_to_cart.remove_product_from_view_items()
+        time.sleep(5)
+        assert add_to_cart.get_message() in 'Success: You have removed an item from your shopping cart!'
     # def test_add_to_cart_with_valid_options(self, driver):
     #     driver.get(BASE_URL)
         

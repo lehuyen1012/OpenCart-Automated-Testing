@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 
 class Driver:
-    @pytest.fixture(scope="function")
+    @pytest.fixture(scope="function") 
     def driver(self):
         options = webdriver.ChromeOptions()
         options.add_argument("start-maximized") 

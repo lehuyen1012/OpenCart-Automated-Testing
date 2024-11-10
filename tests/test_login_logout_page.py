@@ -1,5 +1,7 @@
+import sys
+sys.path.append("D:/myproject/test/automated-testing-opencart")
+from mydriver.mydriver import Driver
 import time
-from driver.driver import Driver
 from pages.login_logout_page import LoginPage
 
 class TestLoginLogout(Driver):

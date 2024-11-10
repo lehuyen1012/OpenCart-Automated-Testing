@@ -90,7 +90,7 @@ class Checkout(BasePage):
         self.scroll_to(0, 500)
         self.driver.find_element(By.ID, "input-firstname").send_keys("Huyen")
         self.driver.find_element(By.ID, "input-lastname").send_keys("Le")
-        self.driver.find_element(By.ID, "input-email").send_keys("skaovm@gmail.com")
+        self.driver.find_element(By.ID, "input-email").send_keys("testcheckout00@gmail.com")
         self.driver.find_element(By.ID, "input-shipping-address-1").send_keys("")
         self.driver.find_element(By.ID, "input-shipping-city").send_keys("Hcm")
         self.driver.find_element(By.ID, "input-shipping-postcode").send_keys("70000")

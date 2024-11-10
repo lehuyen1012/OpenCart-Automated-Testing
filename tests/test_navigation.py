@@ -1,5 +1,7 @@
+import sys
+sys.path.append("D:/myproject/test/automated-testing-opencart")
+from mydriver.mydriver import Driver
 import time
-from driver.driver import Driver
 from pages.navigation_page import Navigation
 from utils.config import BASE_URL, NAVIGATION_URL
 

@@ -1,4 +1,6 @@
-from driver.driver import Driver
+import sys
+sys.path.append("D:/myproject/test/automated-testing-opencart")
+from mydriver.mydriver import Driver
 from pages.data_validation_page import DataValidation
 from pages.navigation_page import Navigation
 from utils.config import BASE_URL
@@ -195,7 +197,7 @@ class TestDataValidation(Driver):
         expected_products = ["HTC Touch HD", "iPhone", "Palm Treo Pro"]
         errors = []
         # Navigate to the phones and pads category
-        navigation.navigation_to_phones_and_pads()
+        navigation.navigation_to_phones_and_PDAs()
         # Get the displayed products
         displayed_products = data_validation.data_validation_show_product()
 

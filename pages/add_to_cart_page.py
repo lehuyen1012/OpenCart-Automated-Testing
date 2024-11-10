@@ -65,6 +65,24 @@ class AddToCart(BasePage):
         self.driver.find_element(By.ID, 'button-cart').click()
         time.sleep(3)
 
+    def remove_product_from_shopping_cart(self):
+        product_rows = self.driver.find_elements(By.XPATH, "/html/body/main/div[2]/div/div/div[1]/div/table/tbody/tr")
+        for _ in range(len(product_rows)):
+            update_button = self.driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div/div[1]/div/table/tbody/tr/td[4]/form/div/button[2]")
+            update_button.click()
+            time.sleep(2)
+
+    def remove_product_from_view_items(self):
+        self.driver.find_element(By.XPATH, "/html/body/header/div/div/div[3]/div/ul/li/table/tbody/tr[1]/td[5]/form/button").click()
+        time.sleep(2)
+    
+    def get_lable_shopping_cart(self):
+        return self.driver.find_element(By.XPATH, "/html/body/main/div[2]/div/div/p").text
+
+    def get_message(self):
+        message = self.driver.find_element(By.XPATH, "/html/body/div").text
+        return message
+    
     def get_success_add_to_cart(self):
         return self.driver.find_element(By.XPATH, "//div[contains(@class, 'alert-success')]").text
     
